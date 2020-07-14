@@ -8,8 +8,20 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "codemirror": "^5.55.0",
+    "html-minifier-terser": "^5.1.1",
+    "html2jade": "^0.8.6",
+    "js-beautify": "^1.11.0",
+    "less": "^3.11.3",
     "next": "9.4.4",
+    "pug": "^3.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-less": "^1.0.1",
+    "antd": "^4.4.2"
   }
 }
