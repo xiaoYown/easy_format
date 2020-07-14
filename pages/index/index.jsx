@@ -2,7 +2,7 @@ import './index.less'
 
 import Head from 'next/head'
 
-export default function Home(params) {
+export default function Index (params) {
   return (
     <div className="container">
       <Head>
@@ -18,6 +18,9 @@ export default function Home(params) {
             <ul className="m-FunctionTypeList">
               <li className="m-FunctionTypeName">
                 <a target="_self" href="/pugandhtml">pug & html</a>
+              </li>
+              <li className="m-FunctionTypeName">
+                <a target="_self" href="/textandbase64">text & base64</a>
               </li>
             </ul>
             {/* <div className="m-FunctionType">转码</div> */}

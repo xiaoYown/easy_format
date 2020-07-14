@@ -5,12 +5,14 @@ import 'codemirror/addon/hint/show-hint.css';
 import React from 'react';
 import beautify from 'js-beautify';
 import Head from 'next/head';
+import CodeBlockTwo from '../../components/CodeBlockTwo';
+import CodeFormatButton from '../../components/CodeFormatButton';
 
 import { FormatPug2Html, FormatHtml2Pug } from '../../reqs';
 
 let CodeMirror = null;
 
-export default class Home extends React.Component {
+export default class PugAndHtml extends React.Component {
   componentDidMount () {
     import('../../libs/codemirror').then((res) => {
       CodeMirror = res.default;
@@ -93,25 +95,26 @@ html(lang="en")
   
         <main>
           <div className="p-PugAndHtml">
-            <div className="m-Container">
-              <div className="m-Block">
-                <textarea id="pug" className="m-Code"></textarea>
-              </div>
-              <div className="m-Block">
-                <textarea id="html" className="m-Code"></textarea>
-              </div>
-            </div>
+            <CodeBlockTwo
+              block1={ <textarea id="pug" className="m-Code"></textarea> }
+              block2={ <textarea id="html" className="m-Code"></textarea> }
+            ></CodeBlockTwo>
           </div>
-          <div className="m-Footer">
-            <div className="m-FooterItem"><br/>pug</div>
-            <div className="m-FooterItem">
-              <div className="m-FormatBtn" onClick={ () => this.toHtml() }>{'->'}</div>
-              <div className="m-FormatBtn" onClick={ () => this.toPug() }>{'<-'}</div>
-            </div>
-            <div className="m-FooterItem"><br/>html</div>
-          </div>
+          <CodeFormatButton
+            textLeft="PUG"
+            textRight="HTML"
+            onClick={res => {
+              switch (res) {
+                case 0:
+                  this.toHtml();
+                  break;
+                case 1:
+                  this.toPug();
+                  break;
+              }
+            }}
+          />
         </main>
-  
         <footer>
         </footer>
       </div>
