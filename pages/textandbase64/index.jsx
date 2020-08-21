@@ -5,7 +5,18 @@ import Head from 'next/head';
 import CodeBlockTwo from '../../components/CodeBlockTwo';
 import CodeFormatButton from '../../components/CodeFormatButton';
 
-import { encode, decode } from './utils';
+import CryptoJS from 'crypto-js';
+
+
+function encode (words) {
+	const str = CryptoJS.enc.Utf8.parse(words);
+  const base64 = CryptoJS.enc.Base64.stringify(str);
+  return base64;
+}
+function decode (base64) {
+	const words  = CryptoJS.enc.Base64.parse(base64);
+	return words.toString(CryptoJS.enc.Utf8);
+}
 
 export default class TextAndBase64 extends React.Component {
   constructor (props) {
@@ -68,7 +79,7 @@ export default class TextAndBase64 extends React.Component {
                   break;
                 case 1:
                   this.setState({
-                    valueText: encode(this.state.valueBase64)
+                    valueText: decode(this.state.valueBase64)
                   });
                   break;
               }
