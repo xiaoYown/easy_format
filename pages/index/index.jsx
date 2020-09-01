@@ -1,6 +1,8 @@
-import './index.less'
+import './index.less';
 
-import Head from 'next/head'
+import Head from 'next/head';
+
+const BASE_URL = process.env.BASE_URL || '';
 
 export default function Index (params) {
   return (
@@ -17,10 +19,10 @@ export default function Index (params) {
             {/* <div className="m-FunctionType">编译</div> */}
             <ul className="m-FunctionTypeList">
               <li className="m-FunctionTypeName">
-                <a target="_self" href="/pugandhtml">pug & html</a>
+                <a target="_self" href={`${BASE_URL}/pugandhtml`}>pug & html</a>
               </li>
               <li className="m-FunctionTypeName">
-                <a target="_self" href="/textandbase64">text & base64</a>
+                <a target="_self" href={`${BASE_URL}/textandbase64`}>text & base64</a>
               </li>
             </ul>
             {/* <div className="m-FunctionType">转码</div> */}
