@@ -39,7 +39,7 @@ export default class TextAndBase64 extends React.Component {
       <div className="container">
         <Head>
           <title>text & base64</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href={`${BASE_URL}/favicon.ico`} />
         </Head>
   
         <main>

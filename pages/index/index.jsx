@@ -9,7 +9,7 @@ export default function Index (params) {
     <div className="container">
       <Head>
         <title>Function List</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={`${BASE_URL}/favicon.ico`} />
       </Head>
 
       <main>
@@ -18,6 +18,9 @@ export default function Index (params) {
           <div className="p-Functions">
             {/* <div className="m-FunctionType">编译</div> */}
             <ul className="m-FunctionTypeList">
+              <li className="m-FunctionTypeName">
+                <a target="_self" href={`${BASE_URL}/tinyimage`}>tiny image</a>
+              </li>
               <li className="m-FunctionTypeName">
                 <a target="_self" href={`${BASE_URL}/pugandhtml`}>pug & html</a>
               </li>
