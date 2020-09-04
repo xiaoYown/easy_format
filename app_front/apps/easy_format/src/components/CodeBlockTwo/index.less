@@ -1,0 +1,26 @@
+.m-CodeBlockTwo {
+  height: 100%;
+  border: 1px solid #666666;
+  border-radius: 4px;
+  overflow: hidden;
+
+  .m-Block {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 50%;
+    height: 100%;
+  
+    &:first-child::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      border-right: 1px solid #666666;
+    }
+    .CodeMirror {
+      height: 100%;
+    }
+  }
+}

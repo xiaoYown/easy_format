@@ -1,0 +1,16 @@
+{
+  "name": "ch_form",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "http://root:1@allen.gitea.com/root/data_report_system_front.git",
+  "author": "xiaoYown <qzy09101018@sina.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "scripts": {
+    "all:build": "npm-run-all build:*",
+    "build:easy_format": "cd apps/easy_format && yarn build",
+    "build:cdn": "cd apps/cdn && node copy"
+  }
+}
