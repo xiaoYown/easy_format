@@ -9,4 +9,9 @@ module.exports = function (app) {
       '^/easy_format/api': '/api'
     }
   }))
+  app.use(proxy('/static/compress-images', {
+    target: 'http://localhost:3004',
+    secure: false,
+    changeOrigin: true
+  }))
 };

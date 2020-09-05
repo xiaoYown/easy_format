@@ -8,10 +8,10 @@ export function FormatPug2Html (params) {
 export function FormatHtml2Pug (params) {
   return fetch.post(`${baseURL}/format/html2pug`, params);
 }
-export function FileTinyImage (params) {
-  const config = {
+export function FileTinyImage (params, config) {
+  const _config = Object.assign({
     headers: { 'Content-Type': 'multipart/form-data' },
     transformRequest: []
-  };
-  return fetch.post(`${baseURL}/file/tiny_upload`, params, config);
+  }, config);
+  return fetch.post(`${baseURL}/file/tiny_upload`, params, _config);
 }

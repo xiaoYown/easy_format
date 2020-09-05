@@ -1,0 +1,52 @@
+.tinyimg-progress {
+  height: 20px;
+  padding: 4px 0;
+
+  .progress-line-shadow {
+    position: relative;
+    height: 20px;
+    line-height: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: inset 0 0 1px 1px #dfdfdf;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  &.s-fail .progress-line-shadow {
+    color: #FFFFFF;
+  }
+  &.s-wait .progress-line {
+    background-color: #bbbbbb;
+  }
+  &.s-uploading .progress-line {
+    background-color: #48d9ea;
+    transform: all .05s;
+  }
+  &.s-compress .progress-line {
+    width: 100%;
+    background-color: #04bc7c;
+  }
+  &.s-success .progress-line {
+    width: 100%;
+    background-color: #92ed14;
+  }
+  &.s-fail .progress-line {
+    width: 100%;
+    background-color: #f94c00;
+  }
+  .progress-line {
+    display: inline-block;
+    vertical-align: top;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 10px;
+  }
+  .progress-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
+}

@@ -1,11 +1,11 @@
 const Koa = require('koa');
 const router = require('./apis');
-const koaBody = require('koa-body');
+const KoaBody = require('koa-body');
 
 const app = new Koa();
 
 app.use(
-  koaBody({
+  KoaBody({
     multipart: true,
     formidable: {
       maxFileSize: 1000 * 1024 * 1024
