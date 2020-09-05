@@ -77,8 +77,13 @@ export default class TinyImage extends React.Component {
     const { loaded, total } = e;
     const percent = Math.floor(loaded  * 100 / total);
     const index = fileList.findIndex(item => item.uuid === uuid);
-    fileList[index].status = 'uploading';
     fileList[index].percent = percent;
+    if (percent === 100) {
+      fileList[index].status = 'compress';
+    } else {
+      fileList[index].status = 'uploading';
+    }
+    console.log(fileList[index].status)
     this.setState([fileList]);
   }
   uploadOneEnd = ({ res, file }) => {
