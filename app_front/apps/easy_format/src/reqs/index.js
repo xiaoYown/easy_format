@@ -11,7 +11,8 @@ export function FormatHtml2Pug (params) {
 export function FileTinyImage (params, config) {
   const _config = Object.assign({
     headers: { 'Content-Type': 'multipart/form-data' },
-    transformRequest: []
+    transformRequest: [],
+    timeout: 120000
   }, config);
   return fetch.post(`${baseURL}/file/tiny_upload`, params, _config);
 }
