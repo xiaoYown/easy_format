@@ -4,7 +4,7 @@ const router = require('koa-router')();
 const images = require("images");
 const { v4: uuidv4 } = require('uuid');
 
-const baseURL = process.env.NODE_ENV === 'development' ? '/static/compress-images' : '/compress-images'
+const baseURL = process.env.NODE_ENV === 'development' ? '/compress-images' : '/compress-images'
 
 router.post('/tiny_upload', async (ctx) => {
   const file = ctx.request.files.file;
