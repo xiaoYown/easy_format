@@ -19,8 +19,6 @@ router.post('/tiny_upload', async (ctx) => {
   fs.unlink(file.path, (err) => {
     if (err) {
       throw err;
-    } else {
-      console.log('Delete file success');
     }
   })
   ctx.set('Content-Type', 'application/json');
