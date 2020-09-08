@@ -10,11 +10,13 @@
   },
   "scripts": {
     "ins": "npm-run-all ins:*",
-    "all:build": "npm-run-all build:*",
     "ins:easy_format": "cd apps/easy_format && yarn install",
     "ins:public": "cd apps/public && yarn install",
     "ins:cdn": "cd apps/cdn && yarn install",
+    "dev": "npm-run-all dev:*",
+    "all:build": "npm-run-all build:*",
     "build:easy_format": "cd apps/easy_format && yarn build",
+    "dev:easy_format": "cd apps/easy_format && yarn start",
     "build:cdn": "cd apps/cdn && node copy"
   }
 }

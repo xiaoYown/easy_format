@@ -5,6 +5,8 @@ const scheduleCronstyle = require('./utils/schedule');
 
 const app = new Koa();
 
+const port = process.env.NODE_ENV === 'development' ? 3010 : 3002;
+
 app.use(
   KoaBody({
     multipart: true,
@@ -17,7 +19,7 @@ app.use(
 
 app.use(router.routes(),  router.allowedMethods());
 
-app.listen(3002);
+app.listen(port);
 scheduleCronstyle(); // 定时清空图片任务
 
-console.log('Local: http://localhost:3002');
+console.log(`Local: http://localhost:${port}`);

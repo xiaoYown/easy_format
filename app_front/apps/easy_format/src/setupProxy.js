@@ -2,7 +2,7 @@ const proxy = require('http-proxy-middleware');
 
 module.exports = function (app) {
   app.use(proxy('/easy_format/api', {
-    target: 'http://localhost:3002',
+    target: 'http://localhost:3010',
     secure: false,
     changeOrigin: true,
     pathRewrite: {
