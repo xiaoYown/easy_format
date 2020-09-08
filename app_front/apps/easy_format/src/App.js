@@ -23,9 +23,9 @@ function App() {
       <Router
         basename={BASE_URL}
       >
-        <Switch>
-          <ErrorBoundary>
-            <Suspense fallback={<ChunkLoader />}>
+        <ErrorBoundary>
+          <Suspense fallback={<ChunkLoader />}>
+            <Switch>
               <Route
                 exact
                 path="/"
@@ -47,12 +47,11 @@ function App() {
                 component={PageTinyImage}
               />
               <Route
-                path="*"
                 component={NotFound}
               />
-            </Suspense>
-          </ErrorBoundary>
-        </Switch>
+            </Switch>
+          </Suspense>
+        </ErrorBoundary>
       </Router>
     </div>
   );
