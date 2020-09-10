@@ -20,7 +20,7 @@ export default class Index extends React.Component {
             <Link to="/pugandhtml">pug & html</Link>
             </li>
             <li className="m-FunctionTypeName">
-              <Link to="/textandbase64">text & base64</Link>
+              <Link to="/cryptojs">crypto-js</Link>
             </li>
           </ul>
         </div>

@@ -12,7 +12,7 @@ import ErrorBoundary from './components/Error/ErrorBoundary';
 
 const PageIndex = lazy(() => import(/* webpackChunkName: "index" */ './pages/Index'));
 const PagePugAndHtml = lazy(() => import(/* webpackChunkName: "pugandhtml" */ './pages/PugAndHtml'));
-const PageTextAndBase64 = lazy(() => import(/* webpackChunkName: "textandbase64" */ './pages/TextAndBase64'));
+const CryptoJS = lazy(() => import(/* webpackChunkName: "cryptojs" */ './pages/CryptoJS'));
 const PageTinyImage = lazy(() => import(/* webpackChunkName: "tinyimage" */ './pages/TinyImage'));
 
 const { BASE_URL } = process.env;
@@ -38,8 +38,8 @@ function App() {
               />
               <Route
                 exact
-                path={`/textandbase64`}
-                component={PageTextAndBase64}
+                path={`/cryptojs`}
+                component={CryptoJS}
               />
               <Route
                 exact
