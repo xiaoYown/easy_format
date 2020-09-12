@@ -9,6 +9,8 @@ import {
 import ChunkLoader from './components/ChunkLoader';
 import NotFound from './components/Error/NotFound';
 import ErrorBoundary from './components/Error/ErrorBoundary';
+import Translate from './locale/Translate';
+import './i18n';
 
 const PageIndex = lazy(() => import(/* webpackChunkName: "index" */ './pages/Index'));
 const PagePugAndHtml = lazy(() => import(/* webpackChunkName: "pugandhtml" */ './pages/PugAndHtml'));
@@ -16,6 +18,7 @@ const CryptoJS = lazy(() => import(/* webpackChunkName: "cryptojs" */ './pages/C
 const PageTinyImage = lazy(() => import(/* webpackChunkName: "tinyimage" */ './pages/TinyImage'));
 
 const { BASE_URL } = process.env;
+React.Translate = Translate;
 
 function App() {
   return (
