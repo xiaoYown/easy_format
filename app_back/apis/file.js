@@ -6,6 +6,9 @@ const { v4: uuidv4 } = require('uuid');
 
 const baseURL = process.env.NODE_ENV === 'development' ? '/compress-images' : '/compress-images'
 
+// TODO: 超大尺寸时报错
+// images.setLimit(100000, 100000);
+
 router.post('/tiny_upload', async (ctx) => {
   const file = ctx.request.files.file;
   const extname = path.extname(file.name);
@@ -16,6 +19,8 @@ router.post('/tiny_upload', async (ctx) => {
   images(file.path).save(filepath, {
     quality: parseInt(quality)
   });
+  const size = fs.statSync(filepath).size;
+
   fs.unlink(file.path, (err) => {
     if (err) {
       throw err;
@@ -27,7 +32,8 @@ router.post('/tiny_upload', async (ctx) => {
     msg: 'success',
     data: {
       base: baseURL,
-      filename
+      filename,
+      size
     }
   };
 });

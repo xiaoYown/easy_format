@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "cross-env NODE_ENV=development node-supervisor --require @babel/register app.js",
     "image": "node dev/app.js",
-    "start": "cross-env NODE_ENV=production node app"
+    "start": "cross-env NODE_ENV=production node app",
+    "pro": "pm2 start --name easy_format npm -- run start"
   },
   "author": "",
   "license": "ISC",

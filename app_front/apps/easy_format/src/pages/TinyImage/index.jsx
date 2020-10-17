@@ -14,6 +14,14 @@ const listen = (el, event, cb = prevent) => {
 const remove = (el, event, cb = prevent) => {
   el.removeEventListener(event, cb);
 }
+function formatBytes (bytes, decimals = 2) {
+  if (bytes === 0) return '0 Bytes';
+  const k = 1024;
+  const dm = decimals < 0 ? 0 : decimals;
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}
 
 export default class TinyImage extends React.Component {
   constructor (props) {
@@ -93,8 +101,9 @@ export default class TinyImage extends React.Component {
     const index = fileList.findIndex(item => item.uuid === uuid);
     fileList[index].status = status;
     if (status === 'success') {
-      const { base, filename } = data;
+      const { base, filename, size } = data;
       fileList[index].url = `${base}/${filename}`;
+      fileList[index].sizeAfter = formatBytes(size);
     }
     this.setState(fileList);
   }
@@ -113,12 +122,12 @@ export default class TinyImage extends React.Component {
         quality: quality,
         progress: (...args) => this.onProgress(...args),
       };
-
       fileList.push({
         uuid: uuid,
         name: files[i].name,
         percent: 0,
         status: 'wait', // wait|uploading|compress|success|fail
+        sizeBefore: formatBytes(files[i].size)
       });
     }
     this.setState({ fileList },() => {
@@ -171,11 +180,15 @@ export default class TinyImage extends React.Component {
                 >
                   <div className="item-msg tinyimg-files-item-1">
                     { item.name }
+                    <span className="m-size">{ item.sizeBefore}</span>
                   </div>
                   <div className="item-msg tinyimg-files-item-2">
                     <Progress {...item} />
                   </div>
                   <div className="item-msg tinyimg-files-item-3">
+                    {
+                      !item.sizeAfter ? null : <span className="m-size">{ item.sizeAfter }</span>
+                    }
                     {
                       !item.url ? null : <a
                         href={ item.url }
