@@ -1,0 +1,5 @@
+app_front/apps/easy_format/node_modules
+app_front/apps/cdn/node_modules
+app_front/apps/public/node_modules
+app_front/node_modules
+app_back/node_modules
