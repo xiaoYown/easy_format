@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^4.6.3",
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "codemirror": "^5.57.0",
     "crypto-js": "^4.0.0",
     "i18next": "^19.7.0",
